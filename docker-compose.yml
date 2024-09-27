@@ -1,11 +1,11 @@
 version: '3'
 services:
   frontend:
-    build: ./frontend
+    image: pricemgp24/checkin-dashboard-frontend:v1.0
     ports:
       - "3000:3000"
   backend:
-    build: ./backend
+    image: pricemgp24/checkin-dashboard-backend:v1.0
     ports:
       - "5000:5000"
     depends_on:
@@ -13,7 +13,7 @@ services:
     environment:
       - MONGO_URL:=mongodb://mongo:27017/checkins
   mongo:
-    image: mongo
+    image: pricemgp24/mongo:v1.0
     ports:
       - "27017:27017"
     volumes:
